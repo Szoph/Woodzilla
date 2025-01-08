@@ -1,8 +1,11 @@
 import React from 'react'
+import PortfolioOptions from '@/components/Portfolio/PortfolioOptions';
 
 const PortfolioPage = () => {
   return (
-    <div>PortfolioPage</div>
+    <div>
+      <PortfolioOptions />
+    </div>
   )
 }
 
