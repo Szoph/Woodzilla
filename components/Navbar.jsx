@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <div className='sticky top-0 z-50 bg-white w-full h-full flex justify-between items-center bg-gray-100 px-8 pt-12 pb-10'>
     <div className=''>
-        <Link href='/'><h2 className='text-2xl font-extrabold'>WOODZILLA</h2></Link>
+        <Link href='/'><h2 className='text-2xl font-extrabold tracking-wider'>WOODZILLA</h2></Link>
     </div>
 
 {/*DESKTOP MENU*/}
@@ -23,16 +23,16 @@ const Navbar = () => {
         <h3 className='font-semibold text-gray-600 hover:text-black'>HOME</h3>
         </Link> */}
         <Link href='/portfolio'>
-        <h3 className='font-semibold text-gray-600 hover:text-black'>PORTFOLIO</h3>
+        <h3 className='tracking-widest font-semibold text-gray-600 hover:text-black'>PORTFOLIO</h3>
         </Link>
         <Link href='/about'>
-        <h3 className='font-semibold text-gray-600 hover:text-black'>ABOUT</h3>
+        <h3 className='tracking-widest font-semibold text-gray-600 hover:text-black'>ABOUT</h3>
         </Link>
         <Link href='/prints'>
-        <h3 className='font-semibold text-gray-600 hover:text-black'>PRINTS</h3>
+        <h3 className='tracking-widest font-semibold text-gray-600 hover:text-black'>PRINTS</h3>
         </Link>
         <Link href='/enquiries'>
-        <h3 className='font-semibold text-gray-600 hover:text-black'>ENQUIRIES</h3>
+        <h3 className='tracking-widest font-semibold text-gray-600 hover:text-black'>ENQUIRIES</h3>
         </Link>
     </div>
 
@@ -46,16 +46,16 @@ const Navbar = () => {
         <div className='absolute left-0 w-full h-screen z-40 bg-white'>
             <div className='flex flex-col gap-20 items-center justify-center h-full py-40'>
             <Link href='/portfolio' onClick={toggleMenu}>
-            <h3 className='font-semibold text-xl'>PORTFOLIO</h3>
+            <h3 className='font-semibold text-xl tracking-widest'>PORTFOLIO</h3>
             </Link>
             <Link href='/about' onClick={toggleMenu}>
-            <h3 className='font-semibold text-xl'>ABOUT</h3>
+            <h3 className='font-semibold text-xl tracking-widest'>ABOUT</h3>
             </Link>
             <Link href='/prints' onClick={toggleMenu}>
-            <h3 className='font-semibold text-xl'>PRINTS</h3>
+            <h3 className='font-semibold text-xl tracking-widest'>PRINTS</h3>
             </Link>
             <Link href='/enquiries' onClick={toggleMenu}>
-            <h3 className='font-semibold text-xl'>ENQUIRIES</h3>
+            <h3 className='font-semibold text-xl tracking-widest'>ENQUIRIES</h3>
             </Link>
             </div>
 
