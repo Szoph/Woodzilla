@@ -21,7 +21,7 @@ const PortfolioOptions = () => {
         {
             name: 'OTHER', 
             slug: 'other', 
-            image: '/art2.jpeg', 
+            image: '/art1.jpeg', 
         }
     ]
   return (
