@@ -22,8 +22,13 @@ const client = new GraphQLClient(
                 node {
                     id
                     title
+                    handle
                     description
                     tags
+                    priceRange {
+                        minVariantPrice {
+                            amount
+                        }}
                     images(first: 1) {
                         edges {
                             node {

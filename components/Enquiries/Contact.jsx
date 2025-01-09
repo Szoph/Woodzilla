@@ -44,7 +44,7 @@ const Contact = () => {
                 <button type='submit' className='p-3 lg:w-96 md:w-96 w-72 rounded-lg bg-gray-600 text-white font-semibold tracking-widest hover:bg-gray-800 text-sm lg:text-base md:text-sm'>SUBMIT</button>
 
             </form>
-            <h3 className='text-base lg:text-lg md:text-base font-bold tracking-widest p-4 text-center text-gray-400'>OR EMAIL ME AT <span className='text-gray-900'>WOODZILLA.CO.UK</span></h3>
+            <h3 className='text-base lg:text-lg md:text-base font-bold tracking-widest p-4 text-center text-gray-400'>OR EMAIL ME AT <span className='text-gray-900'>ARTBYWOODZILLA@GMAIL.COM</span></h3>
         </div>
     </div>
   )

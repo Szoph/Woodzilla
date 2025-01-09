@@ -13,7 +13,12 @@ export default function PortfolioTag() {
     const { setProductData } = useProduct();
 
 
+    const handleProductClick = (product) => {
+        setProductData(product);
+        console.log('Product clicked:', product); 
 
+    }
+  
 
     useEffect(() => {
         if (tag) {
@@ -23,6 +28,7 @@ export default function PortfolioTag() {
                 setLoading(true);
                 const data = await fetchProductsByTag(tag); 
                 setProducts(data); 
+                
                } catch (error) {
                 console.error('Error fetching products:', error);
                } finally {
@@ -46,8 +52,8 @@ export default function PortfolioTag() {
             ) : products.length > 0 ? (
                 <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4'>
                     {products.map((product) => (
-                        <Link key={product.node.id} href={`/portfolio/${tag}/${product.node.id}`} onClick={() => setProductData(product)}>
-                        <div key={product.node.id} className='p-4'>
+                        <Link key={product.node.id} href={`/portfolio/${tag}/${product.node.id.split('/').pop()}`} onClick={() => handleProductClick(product.node)}>
+                        <div className='p-4'>
                             <img src={product.node.images.edges[0].node.url} alt={product.node.title} className='w-full h-64 object-cover' />
                             <h2 className='pt-8 '>{product.node.title}</h2>
                             
@@ -57,7 +63,7 @@ export default function PortfolioTag() {
                     ))}
                 </div>
             ) : (
-                <p>No products found for "{tag}"</p>
+                <p className='text-lg font-semibold tracking-widest text-center'>Uh oh! No products found for "{tag}". Check back later</p>
             )}
         </div>
     )
