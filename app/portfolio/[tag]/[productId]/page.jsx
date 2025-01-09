@@ -1,15 +1,14 @@
 'use client';
 import { useProduct } from '../../../../utils/ProductContext';
 import { useEffect, useState } from 'react'; 
+import { Button, Modal } from 'flowbite-react'; 
 import Link from 'next/link';
 
 export default function ProductPage() { 
     const { productData } = useProduct();
     const [isOpen, setIsOpen] = useState(false);
 
-    const handleClickPic = () => {
-        setIsOpen(!isOpen); 
-    }
+    
 
     useEffect(() => {
         console.log(productData);
@@ -27,17 +26,23 @@ export default function ProductPage() {
 
 
     return (
-        <div className='relative w-full h-full'>
-        <div className='px-20 py-20 flex lg:flex-row flex-col gap-8'>
+        <>
+      
+            <Modal dismissible show={isOpen}  onClose={() => setIsOpen(false)} popup>
+                <Modal.Header><h3 className='text-xl font-bold tracking-widest p-4'>{productData.title.toUpperCase()}</h3></Modal.Header>
+                <Modal.Body className='flex justify-center'>
+                    
+                    <img src={productData.images.edges[0].node.url} alt={productData.title} className='object-contain' />
+                
+                </Modal.Body>
+            </Modal>
+        <div className='lg:p-20 md:p-16 p-8 flex lg:flex-row flex-col gap-8 mb-28'>
 
             <div className='lg:w-2/3 w-full flex justify-center items-center'>
-            <img src={productData.images.edges[0].node.url} alt={productData.title} className='hover:cursor-pointer max-h-screen ' onClick={handleClickPic} />
+            <img src={productData.images.edges[0].node.url} alt={productData.title} className='hover:cursor-pointer max-h-screen ' onClick={() => setIsOpen(true)} />
             </div>
-            {isOpen && (
-                <div className='absolute top-0 left-0 w-full h-screen p-8 flex justify-center bg-black bg-opacity-70'>
-                    <img src={productData.images.edges[0].node.url} alt={productData.title} className=' object-contain' onClick={handleClickPic} />
-                </div>
-            )}
+            
+            
             
 
             <div className='lg:w-1/3 w-full flex flex-col gap-4'>
@@ -47,16 +52,18 @@ export default function ProductPage() {
 
             
 
-            {isForSale && (
+            {isForSale ? (
                 <div className='flex flex-col gap-4 '>
                     <p className='text-lg font-semibold'>£{productData.priceRange.minVariantPrice.amount}</p>
-                    <Link href='/' className=''>
-                    <button className='bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-600 font-bold'>BUY NOW</button></Link>
+                    <Link href='/' className=' mt-8 bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-600 font-bold tracking-widest text-center'>
+                    BUY NOW </Link>
                 </div>
+            ) : (
+                <p className='text-sm tracking-widest mt-8'>Unavailable for purchase :(</p>
             )}
             </div>
             
         </div>
-        </div>
+        </>
     )
 }
