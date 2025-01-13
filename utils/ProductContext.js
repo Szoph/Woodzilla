@@ -10,7 +10,6 @@ export const useProduct = () => {
 export const ProductProvider = ({ children }) => {
     const [productData, setProductData] = useState(null); 
 
-    console.log('ProductProvider state:', productData);
 
     return (
         <ProductContext.Provider value={{ productData, setProductData }}>
